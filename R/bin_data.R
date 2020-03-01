@@ -3,7 +3,8 @@
 #'
 #' @param x  \code{vector} of activity data.
 #' @param method \code{character} of "sum" or "average", function used to bin the data
-#' @param window window size used to bin the original 1440 dimensional data into
+#' @param window window size used to bin the original 1440 dimensional data into. Window size
+#' should be an integer factor of 1440
 #' @return a vector of binned data
 
 #'
@@ -22,8 +23,8 @@
 
 bin_data = function(
   x = x,
-  window = 10,
-  method = c("sum","average")
+  window = 1,
+  method = c("average","sum")
 ){
 
   if(length(x) != 1440){

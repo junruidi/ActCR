@@ -4,12 +4,13 @@
 \alias{bin_data}
 \title{Bin data into longer windows}
 \usage{
-bin_data(x = x, window = 10, method = c("sum", "average"))
+bin_data(x = x, window = 1, method = c("average", "sum"))
 }
 \arguments{
 \item{x}{\code{vector} of activity data.}
 
-\item{window}{window size used to bin the original 1440 dimensional data into}
+\item{window}{window size used to bin the original 1440 dimensional data into. Window size
+should be an integer factor of 1440}
 
 \item{method}{\code{character} of "sum" or "average", function used to bin the data}
 }

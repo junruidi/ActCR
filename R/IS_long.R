@@ -10,6 +10,7 @@
 #' the sequency of days within each subject.
 #' @param  window an \code{integer} indicating what is the window to bin the data before
 #' the function can be apply to the dataset. For details, see \code{bin_data}.
+#' @param method \code{character} of "sum" or "average", function used to bin the data
 #'
 #' @return IV
 #'
@@ -20,12 +21,13 @@
 #' @examples
 #' data(example_activity_data)
 #' count1 = example_activity_data$count
-#' is_subj = IS_long(count.data = count1, window = 10)
+#' is_subj = IS_long(count.data = count1, window = 10, method = "average")
 
 
 IS_long = function(
   count.data,
-  window = 1
+  window = 1,
+  method = c("average","sum")
   ){
 
   x = count.data
@@ -36,7 +38,7 @@ IS_long = function(
 
   x = cbind(x[,1:2], as.data.frame(
     t(apply(x[,-c(1:2)], 1,
-            FUN = bin_data, window = window))))
+            FUN = bin_data, window = window, method = method))))
   a = split(x,f = x$ID)
   y = unlist(lapply(a, function(x) IS(x[,-c(1:2)])))
   is.out = data.frame(ID = names(y), IS = y)

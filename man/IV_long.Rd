@@ -4,7 +4,7 @@
 \alias{IV_long}
 \title{Intradaily Variability for the Whole Dataset}
 \usage{
-IV_long(count.data, window = 1)
+IV_long(count.data, window = 1, method = c("average", "sum"))
 }
 \arguments{
 \item{count.data}{\code{data.frame} of dimension n * (p+2) containing the
@@ -15,6 +15,8 @@ the sequency of days within each subject.}
 
 \item{window}{an \code{integer} indicating what is the window to bin the data before
 the function can be apply to the dataset. For details, see \code{bin_data}.}
+
+\item{method}{\code{character} of "sum" or "average", function used to bin the data}
 }
 \value{
 IV
@@ -22,12 +24,12 @@ IV
 \description{
 This function calcualte intradaily variability, a nonparametric metric
 reprsenting fragmentation of circadian rhtymicity. This function is a whole dataset
-wrapper for \code{IV}
+wrapper for \code{IV}.
 }
 \examples{
 data(example_activity_data)
 count1 = example_activity_data$count
-iv_subj = IV_long(count.data = count1, window = 10)
+iv_subj = IV_long(count.data = count1, window = 10, method = "average")
 
 }
 \references{

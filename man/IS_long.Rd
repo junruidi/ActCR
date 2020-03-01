@@ -4,7 +4,7 @@
 \alias{IS_long}
 \title{Interdaily Statbility for the Whole Dataset}
 \usage{
-IS_long(count.data, window = 1)
+IS_long(count.data, window = 1, method = c("average", "sum"))
 }
 \arguments{
 \item{count.data}{\code{data.frame} of dimension n * (p+2) containing the
@@ -15,6 +15,8 @@ the sequency of days within each subject.}
 
 \item{window}{an \code{integer} indicating what is the window to bin the data before
 the function can be apply to the dataset. For details, see \code{bin_data}.}
+
+\item{method}{\code{character} of "sum" or "average", function used to bin the data}
 }
 \value{
 IV
@@ -27,7 +29,7 @@ wrapper for \code{IS}
 \examples{
 data(example_activity_data)
 count1 = example_activity_data$count
-is_subj = IS_long(count.data = count1, window = 10)
+is_subj = IS_long(count.data = count1, window = 10, method = "average")
 }
 \references{
 Junrui Di et al. Joint and individual representation of domains of physical activity, sleep, and circadian rhythmicity. Statistics in Biosciences.
