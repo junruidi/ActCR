@@ -18,3 +18,6 @@ data(example_activity_data)
 count1 = example_activity_data$count[c(1,2,3),-c(1,2)]
 is = IS(x = count1)
 }
+\references{
+Junrui Di et al. Joint and individual representation of domains of physical activity, sleep, and circadian rhythmicity. Statistics in Biosciences.
+}
