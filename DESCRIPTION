@@ -11,6 +11,8 @@ Authors@R: c(
 Maintainer: Junrui Di <dijunrui@gmail.com>
 Description: Extract circadian rhythm metrics such as intradaily variability, interdaily stability, etc from epoch level actigraphy data.
 License:GPL-3
+Imports:
+    zoo,
 Depends:
     R (>= 3.5.0),
 Encoding: UTF-8
