@@ -1,4 +1,10 @@
 # ActCR
+  <!-- badges: start -->
+  [![Travis build status](https://travis-ci.org/junruidi/ActCR.svg?branch=master)](https://travis-ci.org/junruidi/ActCR)
+  <!-- badges: end -->
+   <!-- badges: start -->
+  [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/junruidi/ActCR?branch=master&svg=true)](https://ci.appveyor.com/project/junruidi/ActCR)
+  <!-- badges: end -->
 
 
 
