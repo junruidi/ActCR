@@ -1,0 +1,18 @@
+Package: ActCR
+Type: Package
+Title: Extract Circadian Rhythms Metrics from Actigraphy Data
+Version: 0.1.0
+Authors@R: c(
+    person(given = "Junrui", family = "Di", 
+        role = c("aut", "cre"), email = "dijunrui@gmail.com"),
+    person(given = "Vadim", family = "zipunnikov", 
+        role = c("aut"), email = "vadim.zipunnikov@gmail.com")
+      )
+Maintainer: Junrui Di <dijunrui@gmail.com>
+Description: Extract circadian rhythm metrics such as intradaily variability, interdaily stability, etc from epoch level actigraphy data.
+License:GPL-3
+Depends:
+    R (>= 3.5.0),
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
