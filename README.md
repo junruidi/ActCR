@@ -7,7 +7,9 @@
 
 
 Circadian rhythms are rhythms that oscillate about every 24 h, which has been observed in multiple physiological processes including core
-body temperature, hormone secretion, heart rate, blood pressure, and many others. Measuring circadian rhythm with wearables is based on a principle that there is increased movement during wake periods and reduced movement during sleep periods, and has been shown to be reliable and valid.
+body temperature, hormone secretion, heart rate, blood pressure, and many others. Measuring circadian rhythm with wearables is based on a principle that there is increased movement during wake periods and reduced movement during sleep periods, and has been shown to be reliable and valid.This package can be used to 
+extract nonparametric circadian metrics like IV, IS, and RA; and parametric cosinor model
+coefficient.
 
 
 ## Install
