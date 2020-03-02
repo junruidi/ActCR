@@ -3,8 +3,8 @@
 #' of circadian rhtymicity. This function is a whole dataset
 #' wrapper for \code{IS}
 #'
-#' @param count.data \code{data.frame} of dimension n * (p+2) containing the
-#' p dimensional activity data for all n subject days.
+#' @param count.data \code{data.frame} of dimension n * (1440+2) containing the
+#' 1440 dimensional activity data for all n subject days.
 #' The first two columns have to be ID and Day. ID can be
 #' either \code{character} or \code{numeric}. Day has to be \code{numeric} indicating
 #' the sequency of days within each subject.
@@ -12,7 +12,9 @@
 #' the function can be apply to the dataset. For details, see \code{bin_data}.
 #' @param method \code{character} of "sum" or "average", function used to bin the data
 #'
-#' @return IV
+#' @return A \code{data.frame} with the following 2 columns
+#' \item{ID}{ID}
+#' \item{IS}{IS}
 #'
 #' @references Junrui Di et al. Joint and individual representation of domains of physical activity, sleep, and circadian rhythmicity. Statistics in Biosciences.
 #' @export

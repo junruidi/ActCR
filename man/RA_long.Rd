@@ -7,7 +7,11 @@
 RA_long(count.data, window = 1, method = c("average", "sum"))
 }
 \arguments{
-\item{count.data}{\code{vector} vector of activity data}
+\item{count.data}{\code{data.frame} of dimension n * (p+2) containing the
+p dimensional activity data for all n subject days.
+The first two columns have to be ID and Day. ID can be
+either \code{character} or \code{numeric}. Day has to be \code{numeric} indicating
+the sequency of days within each subject.}
 
 \item{window}{since the caculation of M10 and L5 depends on the dimension of data, we need to include
 window size as an argument. This function is a whole dataset
@@ -16,11 +20,15 @@ wrapper for \code{RA}.}
 \item{method}{\code{character} of "sum" or "average", function used to bin the data}
 }
 \value{
-RA
+A \code{data.frame} with the following 3 columns
+\item{ID}{ID}
+\item{Day}{Day}
+\item{RA}{RA}
 }
 \description{
 This function calcualte relative amplitude, a nonparametric metric
-of circadian rhtymicity.
+of circadian rhtymicity. This function is a whole dataset
+wrapper for \code{RA}.
 }
 \examples{
 data(example_activity_data)

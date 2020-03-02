@@ -42,7 +42,7 @@ bin_data = function(
     binx = rollapply(x, width = window, by = window, FUN = sum)
   }
   if(method == "average"){
-    binx = rollapply(x, width = window, by = window, FUN = sum)
+    binx = rollapply(x, width = window, by = window, FUN = mean)
   }
 
   return(binx)

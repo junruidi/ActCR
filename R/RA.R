@@ -26,6 +26,12 @@ RA = function(
   window = 1,
   method = c("average","sum")
   ){
+
+  if(length(x) %% 1440/window != 0){
+    stop("Window size and length of input vector doesn't match.
+         Only use window size that is an integer factor of 1440")
+  }
+
   x_bin = bin_data(x, window = window, method = method)
   M10 = max(roll(x_bin, 10 * 1440/window/24))
   L5 = min(roll(x_bin, 5 * 1440/window/24))

@@ -13,6 +13,8 @@ Description: Extract circadian rhythm metrics such as intradaily variability, in
 License:GPL-3
 Imports:
     zoo,
+    cosinor,
+    dplyr
 Depends:
     R (>= 3.5.0),
 Encoding: UTF-8
