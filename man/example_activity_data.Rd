@@ -4,12 +4,14 @@
 \name{example_activity_data}
 \alias{example_activity_data}
 \title{Activity/Wear Data from 50 Subjects from NHANES 2003 - 2006}
-\format{A list of two \code{data.frame}s with 1442 columns, which are in the following order:
+\format{
+A list of two \code{data.frame}s with 1442 columns, which are in the following order:
 \describe{
 \item{ID}{identifier of the person.}
 \item{Day}{\code{numeric} sequence 1,2,.. indicating the order of days within a subject.}
 \item{MIN1-MIN1440}{counts of activity of that specific minute.}
-}}
+}
+}
 \usage{
 example_activity_data
 }

@@ -7,11 +7,13 @@
 #'
 #'
 #' @importFrom cosinor cosinor.lm
+#' @importFrom cosinor2 correct.acrophase
 #'
 #' @return A list with elements
 #' \item{mes}{mesor}
 #' \item{amp}{amplitude}
-#' \item{acro}{acrophase}
+#' \item{acro}{acrophase in negative radians}
+#' \item{acrotime}{acrophase in time domain (hour)}
 #'
 #' @export
 #' @examples
@@ -41,13 +43,16 @@ ActCosinor = function(
 
   mesor = fit$coefficients[1]
   amp = fit$coefficients[2]
-  acr = fit$coefficients[3]
+  # acr = fit$coefficients[3]
+  acr = correct.acrophase(fit)
+  acrotime = (-1) * acr * 24/(2 * pi)
 
-  names(mesor) = names(amp) = names(acr) = NULL
+  names(mesor) = names(amp) = names(acr) = names(acrotime) = NULL
 
   ret = list("mes" = mesor,
              "amp" = amp,
              "acr" = acr,
+             "acrotime" = acrotime,
              "ndays" = n.days)
 
   return(ret)

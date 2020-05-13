@@ -20,6 +20,7 @@
 #' \item{mes}{mesor}
 #' \item{amp}{amplitude}
 #' \item{acro}{acrophase}
+#' \item{acrotime}{acrophase in time domain (hour)}
 #'
 #' @export
 #' @examples
@@ -54,9 +55,10 @@ ActCosinor_long = function(
   result$mes = out[which(names(out) == "mes")]
   result$amp = out[which(names(out) == "amp")]
   result$acr = out[which(names(out) == "acr")]
+  result$acrotime = out[which(names(out) == "acrotime")]
 
   result$out = NULL
-  names(result)[3:5] = paste0(names(result)[3:5],"_",window)
+  names(result)[3:6] = paste0(names(result)[3:6],"_",window)
   return(result)
 
 }

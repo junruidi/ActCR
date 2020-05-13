@@ -15,7 +15,8 @@ ActCosinor(x, window = 1)
 A list with elements
 \item{mes}{mesor}
 \item{amp}{amplitude}
-\item{acro}{acrophase}
+\item{acro}{acrophase in negative radians}
+\item{acrotime}{acrophase in time domain (hour)}
 }
 \description{
 A parametric approach to study circadian rhythmicity assuming cosinor shape.

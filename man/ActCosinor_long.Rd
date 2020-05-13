@@ -23,6 +23,7 @@ A \code{data.frame} with the following 5 columns
 \item{mes}{mesor}
 \item{amp}{amplitude}
 \item{acro}{acrophase}
+\item{acrotime}{acrophase in time domain (hour)}
 }
 \description{
 A parametric approach to study circadian rhythmicity assuming cosinor shape.This function is a whole dataset
