@@ -15,6 +15,8 @@
 #' \item{acro}{acrophase, a meaure of the time of the overall high values recurring in each cycle. Here it has a unit of radian. This represents time to reach the peak.}
 #' \item{acrotime}{acrophase in the unit of the time (hours)}
 #'
+#'
+#' @references @references Cornelissen, G. Cosinor-based rhythmometry. Theor Biol Med Model 11, 16 (2014). https://doi.org/10.1186/1742-4682-11-16
 #' @export
 #' @examples
 #' count1 = c(t(example_activity_data$count[1,-c(1,2)]))

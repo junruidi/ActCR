@@ -25,3 +25,6 @@ A parametric approach to study circadian rhythmicity assuming cosinor shape.
 count1 = c(t(example_activity_data$count[1,-c(1,2)]))
 cos_coeff = ActCosinor(x = count1, window = 1)
 }
+\references{
+@references Cornelissen, G. Cosinor-based rhythmometry. Theor Biol Med Model 11, 16 (2014). https://doi.org/10.1186/1742-4682-11-16
+}
