@@ -20,10 +20,10 @@ window size as an argument.}
 A \code{data.frame} with the following 5 columns
 \item{ID}{ID}
 \item{ndays}{number of days}
-\item{mes}{mesor}
-\item{amp}{amplitude}
-\item{acro}{acrophase}
-\item{acrotime}{acrophase in time domain (hour)}
+\item{mes}{MESRO, which is short for midline statistics of rhythm, which is a rhythm adjusted mean. This represents mean activity level.}
+\item{amp}{amplitude, a measure of half the extend of predictable variation within a cycle. This represents the highest activity one can achieve.}
+\item{acro}{acrophase, a meaure of the time of the overall high values recurring in each cycle. Here it has a unit of radian. This represents time to reach the peak.}
+\item{acrotime}{acrophase in the unit of the time (hours)}
 }
 \description{
 A parametric approach to study circadian rhythmicity assuming cosinor shape.This function is a whole dataset
