@@ -10,7 +10,7 @@
 #' @importFrom cosinor2 correct.acrophase
 #'
 #' @return A list with elements
-#' \item{mes}{mesor}
+#' \item{mes}{mesor, a mean value}
 #' \item{amp}{amplitude}
 #' \item{acro}{acrophase in negative radians}
 #' \item{acrotime}{acrophase in time domain (hour)}
