@@ -3,7 +3,7 @@
 #'
 #'
 #' @param x \code{vector} vector of dimension n*1440 which reprsents n days of 1440 minute activity data
-#' @param window The calcuation needs to understand what is the window size of the data
+#' @param window The calculation needs the window size of the data. E.g window = 1 means each epoch is in one-minute window.
 #'
 #'
 #' @importFrom cosinor cosinor.lm

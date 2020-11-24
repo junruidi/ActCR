@@ -1,16 +1,16 @@
 #' @title Cosinor Model for Circadian Rhythmicity for the Whole Dataset
-#' @description A parametric approach to study circadian rhythmicity assuming cosinor shape.This function is a whole dataset
-#' wrapper for \code{RA}.
+#' @description Extended cosinor model based on sigmoidally transformed cosine curve using anti-logistic transformation.This function is a whole dataset
+#' wrapper for \code{ActExtendCosinor}.
 #'
 #' @param count.data \code{data.frame} of dimension n * (p+2) containing the
 #' p dimensional activity data for all n subject days.
 #' The first two columns have to be ID and Day. ID can be
 #' either \code{character} or \code{numeric}. Day has to be \code{numeric} indicating
-#' the sequency of days within each subject.
-#' @param window since the caculation of M10 and L5 depends on the dimension of data, we need to include
+#' the sequence of days within each subject.
+#' @param window The calculation needs the window size of the data. E.g window = 1 means each epoch is in one-minute window.
 #' window size as an argument.
-#' @param lower A numeric vector of lower bounds on each parameter for the NLS. If not given, the default lower bound for each parameter is set to \code{-Inf}.
-#' @param upper A numeric vector of upper bounds on each parameter for the NLS. If not given, the default lower bound for each parameter is set to \code{Inf}
+#' @param lower A numeric vector of lower bounds on each of the five parameters (in the order of minimum, amplitude, alpha, beta, acrophase) for the NLS. If not given, the default lower bound for each parameter is set to \code{-Inf}.
+#' @param upper A numeric vector of upper bounds on each of the five parameters (in the order of minimum, amplitude, alpha, beta, acrophase) for the NLS. If not given, the default lower bound for each parameter is set to \code{Inf}
 #'
 #' @importFrom stats na.omit reshape
 #' @importFrom dplyr group_by %>% do
@@ -56,7 +56,7 @@ ActExtendCosinor_long = function(
 
 
   result= long.count  %>% group_by(ID) %>% do(out = ActExtendCosinor(.$values,
-                                                               window = window))
+                                                               window = window, lower = lower, upper = upper))
 
   out = unlist(result$out)
 

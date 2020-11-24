@@ -9,7 +9,7 @@ ActCosinor(x, window = 1)
 \arguments{
 \item{x}{\code{vector} vector of dimension n*1440 which reprsents n days of 1440 minute activity data}
 
-\item{window}{The calcuation needs to understand what is the window size of the data}
+\item{window}{The calculation needs the window size of the data. E.g window = 1 means each epoch is in one-minute window.}
 }
 \value{
 A list with elements

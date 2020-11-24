@@ -1,14 +1,13 @@
 #' @title Cosinor Model for Circadian Rhythmicity for the Whole Dataset
 #' @description A parametric approach to study circadian rhythmicity assuming cosinor shape.This function is a whole dataset
-#' wrapper for \code{RA}.
+#' wrapper for \code{ActCosinor}.
 #'
 #' @param count.data \code{data.frame} of dimension n * (p+2) containing the
 #' p dimensional activity data for all n subject days.
 #' The first two columns have to be ID and Day. ID can be
 #' either \code{character} or \code{numeric}. Day has to be \code{numeric} indicating
-#' the sequency of days within each subject.
-#' @param window since the caculation of M10 and L5 depends on the dimension of data, we need to include
-#' window size as an argument.
+#' the sequence of days within each subject.
+#' @param window The calculation needs the window size of the data. E.g window = 1 means each epoch is in one-minute window.
 #'
 #' @importFrom stats na.omit reshape
 #' @importFrom dplyr group_by %>% do
