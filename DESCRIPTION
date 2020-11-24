@@ -9,7 +9,7 @@ Authors@R: c(
         role = c("aut"), email = "vadim.zipunnikov@gmail.com")
       )
 Maintainer: Junrui Di <dijunrui@gmail.com>
-Description: Circadian rhythms are rhythms that oscillate about every 24 h, which has been observed in multiple physiological processes including core body temperature, hormone secretion, heart rate, blood pressure, and many others. Measuring circadian rhythm with wearables is based on a principle that there is increased movement during wake periods and reduced movement during sleep periods, and has been shown to be reliable and valid. This package can be used to extract nonparametric circadian metrics like intradaily variability (IV), interdaily stability (IS), and relative amplitude (RA); and parametric cosinor model coefficient. Details can be found in Junrui Di et al (2019) <doi:10.1007/s12561-019-09236-4>.
+Description: Circadian rhythms are rhythms that oscillate about every 24 h, which has been observed in multiple physiological processes including core body temperature, hormone secretion, heart rate, blood pressure, and many others. Measuring circadian rhythm with wearables is based on a principle that there is increased movement during wake periods and reduced movement during sleep periods, and has been shown to be reliable and valid. This package can be used to extract nonparametric circadian metrics like intradaily variability (IV), interdaily stability (IS), and relative amplitude (RA); and parametric cosinor model and extended cosinor model coefficient. Details can be found in Junrui Di et al (2019) <doi:10.1007/s12561-019-09236-4>.
 License: GPL-3
 Imports:
     zoo,
