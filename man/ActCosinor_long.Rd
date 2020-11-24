@@ -24,6 +24,7 @@ A \code{data.frame} with the following 5 columns
 \item{amp}{amplitude, a measure of half the extend of predictable variation within a cycle. This represents the highest activity one can achieve.}
 \item{acro}{acrophase, a meaure of the time of the overall high values recurring in each cycle. Here it has a unit of radian. This represents time to reach the peak.}
 \item{acrotime}{acrophase in the unit of the time (hours)}
+\item{ndays}{Number of days modeled}
 }
 \description{
 A parametric approach to study circadian rhythmicity assuming cosinor shape.This function is a whole dataset

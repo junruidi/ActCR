@@ -13,10 +13,11 @@ ActCosinor(x, window = 1)
 }
 \value{
 A list with elements
-\item{mes}{MESRO, which is short for midline statistics of rhythm, which is a rhythm adjusted mean. This represents mean activity level.}
+\item{mes}{MESOR which is short for midline statistics of rhythm, which is a rhythm adjusted mean. This represents mean activity level.}
 \item{amp}{amplitude, a measure of half the extend of predictable variation within a cycle. This represents the highest activity one can achieve.}
 \item{acro}{acrophase, a meaure of the time of the overall high values recurring in each cycle. Here it has a unit of radian. This represents time to reach the peak.}
 \item{acrotime}{acrophase in the unit of the time (hours)}
+\item{ndays}{Number of days modeled}
 }
 \description{
 A parametric approach to study circadian rhythmicity assuming cosinor shape.
@@ -26,5 +27,5 @@ count1 = c(t(example_activity_data$count[1,-c(1,2)]))
 cos_coeff = ActCosinor(x = count1, window = 1)
 }
 \references{
-@references Cornelissen, G. Cosinor-based rhythmometry. Theor Biol Med Model 11, 16 (2014). https://doi.org/10.1186/1742-4682-11-16
+Cornelissen, G. Cosinor-based rhythmometry. Theor Biol Med Model 11, 16 (2014). https://doi.org/10.1186/1742-4682-11-16
 }
