@@ -31,7 +31,7 @@
 #'
 #' @export
 #' @examples
-#' counts_1 = example_activity_data$count
+#' counts_1 = example_activity_data$count[c(1:12),]
 #' cos_all_1 = ActExtendCosinor_long(count.data = counts_1, window = 1)
 #' counts_10 = cbind(counts_1[,1:2],
 #' as.data.frame(t(apply(counts_1[,-c(1:2)], 1,
