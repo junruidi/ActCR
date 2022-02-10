@@ -32,11 +32,11 @@ test_that("ActExtendCosinor is consistent irrespective of epoch", {
   coef60 = ActExtCosDummy(epochSizeSeconds = 60)
   coef300 = ActExtCosDummy(epochSizeSeconds = 300)
 
-  # Varnames we expect to be consistent
+  # Vars we expect to be consistent at 1 decimal place
   varn = c("minimum", "amp", "alpha", "beta", "acrotime",
                                "UpMesor", "DownMesor", "MESOR", "ndays")
-  expect_equal(round(unlist(coef300[varn]), digits = 3),
-               round(unlist(coef5[varn]), digits = 3))
-  expect_equal(round(unlist(coef5[varn]), digits = 3),
-               round(unlist(coef60[varn]), digits = 3))
+  expect_equal(round(unlist(coef300[varn]), digits = 1),
+               round(unlist(coef5[varn]), digits = 1))
+  expect_equal(round(unlist(coef5[varn]), digits = 1),
+               round(unlist(coef60[varn]), digits = 1))
 })
