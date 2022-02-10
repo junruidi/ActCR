@@ -7,7 +7,7 @@
 #' The first two columns have to be ID and Day. ID can be
 #' either \code{character} or \code{numeric}. Day has to be \code{numeric} indicating
 #' the sequence of days within each subject.
-#' @param window The calculation needs the window size of the data. E.g window = 1 means each epoch is in one-minute window.
+#' @param window The calculation needs the window size (unit minutes) of the data. E.g window = 1 means each epoch is in one-minute window.
 #'
 #' @importFrom stats na.omit reshape
 #' @importFrom dplyr group_by %>% do

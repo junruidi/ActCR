@@ -3,7 +3,7 @@
 #'
 #'
 #' @param x \code{vector} vector of dimension n*1440 which represents n days of 1440 minute activity data
-#' @param window The calculation needs the window size of the data. E.g window = 1 means each epoch is in one-minute window.
+#' @param window The calculation needs the window size (unit minutes) of the data. E.g window = 1 means each epoch is in one-minute window.
 #' @param lower A numeric vector of lower bounds on each of the five parameters (in the order of minimum, amplitude, alpha, beta, acrophase) for the NLS. If not given, the default lower bound for each parameter is set to \code{-Inf}.
 #' @param upper A numeric vector of upper bounds on each of the five parameters (in the order of minimum, amplitude, alpha, beta, acrophase) for the NLS. If not given, the default lower bound for each parameter is set to \code{Inf}
 #'
@@ -39,7 +39,7 @@ ActExtendCosinor = function(
   upper = c(Inf, Inf, 1, Inf, 27)
 
 ){
-  if(1440 %% window != 0){
+  if(abs(1440 %% window) > 1e-12) {
     stop("Only use window size that is an integer factor of 1440")
   }
 

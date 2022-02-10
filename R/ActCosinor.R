@@ -28,7 +28,7 @@ ActCosinor = function(
   x,
   window = 1
 ){
-  if(1440 %% window != 0){
+  if (abs(1440 %% window) > 1e-12) {
     stop("Only use window size that is an integer factor of 1440")
   }
 

@@ -17,10 +17,12 @@ Imports:
     cosinor2,
     dplyr,
     minpack.lm
+Suggests:
+    testthat
 Depends:
     R (>= 3.5.0),
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/junruidi/ActCR
 BugReports: https://github.com/junruidi/ActCR/issues
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
