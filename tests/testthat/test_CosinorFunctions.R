@@ -28,7 +28,7 @@ test_that("ActExtendCosinor is consistent irrespective of epoch", {
     return(ActExtendCosinor(x = counts, window = 1440 / N))
   }
 
-  coef5 = ActExtCosDummy(epochSizeSeconds = 30)
+  coef5 = ActExtCosDummy(epochSizeSeconds = 5)
   coef60 = ActExtCosDummy(epochSizeSeconds = 60)
   coef300 = ActExtCosDummy(epochSizeSeconds = 300)
 
