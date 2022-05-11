@@ -8,7 +8,8 @@ ActExtendCosinor_long(
   count.data,
   window = 1,
   lower = c(0, 0, -1, 0, -3),
-  upper = c(Inf, Inf, 1, Inf, 27)
+  upper = c(Inf, Inf, 1, Inf, 27),
+  export_ts = FALSE
 )
 }
 \arguments{
@@ -24,9 +25,11 @@ window size as an argument.}
 \item{lower}{A numeric vector of lower bounds on each of the five parameters (in the order of minimum, amplitude, alpha, beta, acrophase) for the NLS. If not given, the default lower bound for each parameter is set to \code{-Inf}.}
 
 \item{upper}{A numeric vector of upper bounds on each of the five parameters (in the order of minimum, amplitude, alpha, beta, acrophase) for the NLS. If not given, the default lower bound for each parameter is set to \code{Inf}}
+
+\item{export_ts}{A Boolean to indicate whether time series should be exported (notice: it takes time and storage space to export time series data for all subject-days. Use this with caution. Suggest to only export time series for selected subjects)}
 }
 \value{
-A \code{data.frame} with the following 5 columns
+A \code{data.frame} with the following 11 columns
 \item{ID}{ID}
 \item{ndays}{number of days}
 \item{minimum}{Minimum value of the of the function.}
@@ -38,6 +41,7 @@ A \code{data.frame} with the following 5 columns
 \item{UpMesor}{Time of day of switch from low to high activity. Represents the timing of the rest- activity rhythm. Lower (earlier) values indicate increase in activity earlier in the day and suggest a more advanced circadian phase.}
 \item{DownMesor}{Time of day of switch from high to low activity. Represents the timing of the rest-activity rhythm. Lower (earlier) values indicate decline in activity earlier in the day, suggesting a more advanced circadian phase.}
 \item{MESOR}{A measure analogous to the MESOR of the cosine model (or half the deflection of the curve) can be obtained from mes=min+amp/2. However, it goes through the middle of the peak, and is therefore not equal to the MESOR of the cosine model, which is the mean of the data.}
+\item{cosinor_ts}{Exported data frame with time, time over days, original time series, fitted time series using cosinor model from step 1, and fitted extended cosinor model from step 2}
 }
 \description{
 Extended cosinor model based on sigmoidally transformed cosine curve using anti-logistic transformation.This function is a whole dataset
@@ -45,9 +49,10 @@ wrapper for \code{ActExtendCosinor}.
 }
 \examples{
 counts_1 = example_activity_data$count[c(1:12),]
-cos_all_1 = ActExtendCosinor_long(count.data = counts_1, window = 1)
+cos_all_1 = ActExtendCosinor_long(count.data = counts_1, window = 1, export_ts = TRUE)
 counts_10 = cbind(counts_1[,1:2],
 as.data.frame(t(apply(counts_1[,-c(1:2)], 1,
 FUN = bin_data, window = 10, method = "average"))))
-cos_all_10 = ActExtendCosinor_long(count.data = counts_10, window = 10)
+cos_all_10 = ActExtendCosinor_long(count.data = counts_10, window = 10, export_ts = FALSE)
+
 }

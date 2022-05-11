@@ -4,6 +4,7 @@
 #'
 #' @param x \code{vector} vector of dimension n*1440 which reprsents n days of 1440 minute activity data
 #' @param window The calculation needs the window size of the data. E.g window = 1 means each epoch is in one-minute window.
+#' @param export_ts A Boolean to indicate whether time series should be exported
 #'
 #'
 #' @importFrom cosinor cosinor.lm
@@ -15,18 +16,20 @@
 #' \item{acro}{acrophase, a meaure of the time of the overall high values recurring in each cycle. Here it has a unit of radian. This represents time to reach the peak.}
 #' \item{acrotime}{acrophase in the unit of the time (hours)}
 #' \item{ndays}{Number of days modeled}
+#' \item{cosinor_ts}{Exported data frame with time, time over days, original time series, fitted time series using cosinor model}
 #'
 #'
 #' @references Cornelissen, G. Cosinor-based rhythmometry. Theor Biol Med Model 11, 16 (2014). https://doi.org/10.1186/1742-4682-11-16
 #' @export
 #' @examples
-#' count1 = c(t(example_activity_data$count[1,-c(1,2)]))
-#' cos_coeff = ActCosinor(x = count1, window = 1)
+#' count1 = c(t(example_activity_data$count[c(1:2),-c(1,2)]))
+#' cos_coeff = ActCosinor(x = count1, window = 1, export_ts = TRUE)
 
 
 ActCosinor = function(
   x,
-  window = 1
+  window = 1,
+  export_ts = FALSE
 ){
   if(1440 %% window != 0){
     stop("Only use window size that is an integer factor of 1440")
@@ -52,11 +55,32 @@ ActCosinor = function(
 
   names(mesor) = names(amp) = names(acr) = names(acrotime) = NULL
 
-  ret = list("mes" = mesor,
-             "amp" = amp,
-             "acr" = acr,
-             "acrotime" = acrotime,
-             "ndays" = n.days)
+  if (export_ts == TRUE) {
+    # Put time series in data.frame and add it to output:
+    fittedY = fitted(fit$fit) #cosinor omodel
+    original = tmp.dat$Y #original data
+    time = tmp.dat$time #time
+    time2 = time
+    drops = which(diff(time) < 0) + 1
+    for (k in drops) {
+      time2[k:length(time)] = time2[k:length(time)] + 24
+    }
+    time_across_days = time2
+    cosinor_ts = as.data.frame(cbind(time, time_across_days, original, fittedY)) # data.frame with all signal
+  } else {
+    cosinor_ts = NULL
+  }
+
+
+
+  params = list("mes" = mesor,
+               "amp" = amp,
+               "acr" = acr,
+               "acrotime" = acrotime,
+               "ndays" = n.days)
+  ret = list("params" = params, "cosinor_ts" = cosinor_ts)
+
+  ret =
 
   return(ret)
 

@@ -35,13 +35,14 @@ A list with elements
 \item{DownMesor}{Time of day of switch from high to low activity. Represents the timing of the rest-activity rhythm. Lower (earlier) values indicate decline in activity earlier in the day, suggesting a more advanced circadian phase.}
 \item{MESOR}{A measure analogous to the MESOR of the cosine model (or half the deflection of the curve) can be obtained from mes=min+amp/2. However, it goes through the middle of the peak, and is therefore not equal to the MESOR of the cosine model, which is the mean of the data.}
 \item{ndays}{Number of days modeled.}
+\item{cosinor_ts}{Exported data frame with time, time over days, original time series, fitted time series using cosinor model from step 1, and fitted extended cosinor model from step 2}
 }
 \description{
 Extended cosinor model based on sigmoidally transformed cosine curve using anti-logistic transformation
 }
 \examples{
-count1 = c(t(example_activity_data$count[1,-c(1,2)]))
-cos_coeff = ActExtendCosinor(x = count1, window = 1)
+count1 = c(t(example_activity_data$count[c(1:2),-c(1,2)]))
+cos_coeff = ActExtendCosinor(x = count1, window = 1,export_ts = TRUE)
 }
 \references{
 Marler MR, Gehrman P, Martin JL, Ancoli-Israel S. The sigmoidally transformed cosine curve: a mathematical model for circadian rhythms with symmetric non-sinusoidal shapes. Stat Med.

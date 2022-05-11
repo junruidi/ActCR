@@ -2,7 +2,9 @@
 
 10 May 2022
 
-#Cosinor models now able to handle time series with epoch length less than 1 minute
+#Extended cosinor model now is able to handel data with NA
+
+#Added new features for cosinor and extended cosinor model to export original and fitted time series.
 
 
 28 Jan 2021

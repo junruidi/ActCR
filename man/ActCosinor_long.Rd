@@ -4,7 +4,7 @@
 \alias{ActCosinor_long}
 \title{Cosinor Model for Circadian Rhythmicity for the Whole Dataset}
 \usage{
-ActCosinor_long(count.data, window = 1)
+ActCosinor_long(count.data, window = 1, export_ts = FALSE)
 }
 \arguments{
 \item{count.data}{\code{data.frame} of dimension n * (p+2) containing the
@@ -14,6 +14,8 @@ either \code{character} or \code{numeric}. Day has to be \code{numeric} indicati
 the sequence of days within each subject.}
 
 \item{window}{The calculation needs the window size of the data. E.g window = 1 means each epoch is in one-minute window.}
+
+\item{export_ts}{A Boolean to indicate whether time series should be exported (notice: it takes time and storage space to export time series data for all subject-days. Use this with caution. Suggest to only export time series for selected subjects)}
 }
 \value{
 A \code{data.frame} with the following 5 columns
@@ -24,14 +26,16 @@ A \code{data.frame} with the following 5 columns
 \item{acro}{acrophase, a meaure of the time of the overall high values recurring in each cycle. Here it has a unit of radian. This represents time to reach the peak.}
 \item{acrotime}{acrophase in the unit of the time (hours)}
 \item{ndays}{Number of days modeled}
+and
+\item{cosinor_ts}{Exported data frame with time, time over days, original time series, fitted time series using cosinor model}
 }
 \description{
 A parametric approach to study circadian rhythmicity assuming cosinor shape.This function is a whole dataset
 wrapper for \code{ActCosinor}.
 }
 \examples{
-counts_1 = example_activity_data$count
-cos_all_1 = ActCosinor_long(count.data = counts_1, window = 1)
+counts_1 = example_activity_data$count[c(1:12),]
+cos_all_1 = ActCosinor_long(count.data = counts_1, window = 1,export_ts = TRUE)
 counts_10 = cbind(counts_1[,1:2],
 as.data.frame(t(apply(counts_1[,-c(1:2)], 1,
 FUN = bin_data, window = 10, method = "average"))))
