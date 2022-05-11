@@ -8,7 +8,8 @@ ActExtendCosinor(
   x,
   window = 1,
   lower = c(0, 0, -1, 0, -3),
-  upper = c(Inf, Inf, 1, Inf, 27)
+  upper = c(Inf, Inf, 1, Inf, 27),
+  export_ts = FALSE
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ ActExtendCosinor(
 \item{lower}{A numeric vector of lower bounds on each of the five parameters (in the order of minimum, amplitude, alpha, beta, acrophase) for the NLS. If not given, the default lower bound for each parameter is set to \code{-Inf}.}
 
 \item{upper}{A numeric vector of upper bounds on each of the five parameters (in the order of minimum, amplitude, alpha, beta, acrophase) for the NLS. If not given, the default lower bound for each parameter is set to \code{Inf}}
+
+\item{export_ts}{A Boolean to indicate whether time series should be exported}
 }
 \value{
 A list with elements

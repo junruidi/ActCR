@@ -6,11 +6,12 @@
 #' @param window The calculation needs the window size of the data. E.g window = 1 means each epoch is in one-minute window.
 #' @param lower A numeric vector of lower bounds on each of the five parameters (in the order of minimum, amplitude, alpha, beta, acrophase) for the NLS. If not given, the default lower bound for each parameter is set to \code{-Inf}.
 #' @param upper A numeric vector of upper bounds on each of the five parameters (in the order of minimum, amplitude, alpha, beta, acrophase) for the NLS. If not given, the default lower bound for each parameter is set to \code{Inf}
+#' @param export_ts A Boolean to indicate whether time series should be exported
 #'
 #' @importFrom cosinor cosinor.lm
 #' @importFrom cosinor2 correct.acrophase
 #' @importFrom minpack.lm nls.lm nls.lm.control
-#' @importFrom stats coef residuals
+#' @importFrom stats coef residuals fitted
 #'
 #' @return A list with elements
 #' \item{minimum}{Minimum value of the of the function.}
@@ -36,8 +37,8 @@ ActExtendCosinor = function(
   x,
   window = 1,
   lower = c(0, 0, -1, 0, -3), ## min, amp, alpha, beta, phi
-  upper = c(Inf, Inf, 1, Inf, 27)
-
+  upper = c(Inf, Inf, 1, Inf, 27),
+  export_ts = FALSE
 ){
   if(1440 %% window != 0){
     stop("Only use window size that is an integer factor of 1440")
@@ -71,11 +72,30 @@ ActExtendCosinor = function(
   e_phi0 = acrotime
   e_par0 = c(e_min0, e_amp0, 0, 2, e_phi0) ## min, amp, alpha, beta, phi
 
+  tmp.dat = tmp.dat[!is.na(tmp.dat$Y),] # ignore missing values
+
   fit_nls = nls.lm(e_par0, fn = fn_obj,
                    lower = lower,
                    upper = upper,
                    tmp.dat = tmp.dat,
                    control = nls.lm.control(maxiter = 1000))
+
+  if (export_ts == TRUE) {
+    # Put time series in data.frame and add it to output:
+    fittedYext = tmp.dat$Y - residuals(fit_nls) #extended cosinor model
+    fittedY = fitted(fit$fit) #cosinor omodel
+    original = tmp.dat$Y #original data
+    time = tmp.dat$time #time
+    time2 = time
+    drops = which(diff(time) < 0) + 1
+    for (k in drops) {
+      time2[k:length(time)] = time2[k:length(time)] + 24
+    }
+    cosinor_ts = as.data.frame(cbind(time, time2, original, fittedY, fittedYext)) # data.frame with all signal
+  } else {
+    cosinor_ts = NULL
+  }
+
   ## Estimated exteded cosinor parameters,in the order of
   ## minimum, amplitude, alpha, beta, acrophase
   coef.nls = coef(fit_nls)
@@ -105,7 +125,8 @@ ActExtendCosinor = function(
              "UpMesor" = UpMesor,
              "DownMesor" = DownMesor,
              "MESOR" = MESOR,
-             "ndays" = n.days)
+             "ndays" = n.days,
+             "cosinor_ts" = cosinor_ts)
 
   return(ret)
 
