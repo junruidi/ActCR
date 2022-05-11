@@ -1,5 +1,5 @@
 # ActCR
-[![Travis build status](https://travis-ci.com/junruidi/ActCR.svg?branch=master)](https://travis-ci.com/junruidi/ActCR)
+[![Travis build status](https://travis-ci.com/junruidi/ActCR.svg?branch=master)](https://app.travis-ci.com/github/junruidi/ActCR)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/junruidi/ActCR?branch=master&svg=true)](https://ci.appveyor.com/project/junruidi/ActCR)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/ActCR)](https://CRAN.R-project.org/package=ActCR)
 
