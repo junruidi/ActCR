@@ -15,7 +15,10 @@ window size as an argument.}
 \item{method}{\code{character} of "sum" or "average", function used to bin the data}
 }
 \value{
-RA
+A list with elements
+\item{M10}{Maximum 10 hour activity}
+\item{L5}{Minimum 5 hour activity}
+\item{RA}{Relative amplitude}
 }
 \description{
 This function calcualte relative amplitude, a nonparametric metric

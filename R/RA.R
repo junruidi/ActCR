@@ -7,7 +7,10 @@
 #' window size as an argument.
 #' @param method \code{character} of "sum" or "average", function used to bin the data
 #'
-#' @return RA
+#' @return A list with elements
+#' \item{M10}{Maximum 10 hour activity}
+#' \item{L5}{Minimum 5 hour activity}
+#' \item{RA}{Relative amplitude}
 #'
 #' @importFrom zoo rollapplyr
 #'
@@ -36,7 +39,10 @@ RA = function(
   M10 = max(roll(x_bin, 10 * 1440/window/24))
   L5 = min(roll(x_bin, 5 * 1440/window/24))
   relaamp = (M10 - L5)/(M10 + L5)
-  return(relaamp)
+  params = list("M10" = M10,
+                "L5" = L5,
+                "RA" = relaamp)
+  return(params)
 }
 
 

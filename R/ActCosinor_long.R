@@ -73,6 +73,7 @@ ActCosinor_long = function(
   names(params) = gsub("params.","", names(out)[1:5])
   params = params %>% mutate(ID = result$ID)
   names(params)[1:4] = paste0(names(params)[1:4],"_",window)
+  params = params[,c(6,5,1:4)]
 
   ## Exporting the parameters
   if(export_ts){

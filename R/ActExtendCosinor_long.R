@@ -71,6 +71,7 @@ ActExtendCosinor_long = function(
   names(params) = gsub("params.","", names(out)[1:10])
   params = params %>% mutate(ID = result$ID)
   names(params)[1:9] = paste0(names(params)[1:9],"_",window)
+  params = params[,c(11,10,1:9)]
 
   ## Exporting the parameters
   if(export_ts){

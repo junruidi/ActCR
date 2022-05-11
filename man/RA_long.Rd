@@ -32,7 +32,7 @@ wrapper for \code{RA}.
 }
 \examples{
 data(example_activity_data)
-count1 = example_activity_data$count
+count1 = example_activity_data$count[1:12,]
 ra_all = RA_long(count.data = count1, window = 10, method = "average")
 
 }

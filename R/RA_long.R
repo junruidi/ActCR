@@ -25,7 +25,7 @@
 #'
 #' @examples
 #' data(example_activity_data)
-#' count1 = example_activity_data$count
+#' count1 = example_activity_data$count[1:12,]
 #' ra_all = RA_long(count.data = count1, window = 10, method = "average")
 #'
 
@@ -35,10 +35,15 @@ RA_long = function(
   method = c("average","sum")
   ){
   x = count.data
-  ra_out = as.data.frame(cbind(x[,c(1,2)],
-                               apply(x[,-c(1,2)], 1,
-                                     RA, window = window, method = method)))
-  names(ra_out) = c("ID","Day",paste0("RA_",window))
-  return(ra_out)
+  ra_out =  apply(x[,-c(1,2)], 1,
+                  RA, window = window, method = method)
+  out = unlist(ra_out)
+  params = as.data.frame(matrix(out,ncol = 3,byrow = T))
+  names(params) = c("M10","L5","RA")
+  params = params %>% mutate(ID = x$ID,Day = x$Day)
+  names(params)[1:3] = paste0(names(params)[1:3],"_",window)
+  params = params[,c(4,5,1:3)]
+
+  return(params)
 }
 
