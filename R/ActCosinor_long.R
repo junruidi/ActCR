@@ -22,7 +22,8 @@
 #' \item{acro}{acrophase, a meaure of the time of the overall high values recurring in each cycle. Here it has a unit of radian. This represents time to reach the peak.}
 #' \item{acrotime}{acrophase in the unit of the time (hours)}
 #' \item{ndays}{Number of days modeled}
-#' and
+#' \item{pr}{Percent rhythm, which evaluates the elative power of the rhythm by checking the proportion of the variance explained by the model}
+#' \item{pr_pval}{P values for the percent rhythm}
 #' \item{cosinor_ts}{Exported data frame with time, time over days, original time series, fitted time series using cosinor model}
 #'
 #' @export
@@ -69,11 +70,11 @@ ActCosinor_long = function(
   ## Exporting the parameters
 
   out = unlist(sapply(result$out, function(x) x[1]))
-  params = as.data.frame(matrix(out,ncol = 5,byrow = T))
-  names(params) = gsub("params.","", names(out)[1:5])
+  params = as.data.frame(matrix(out,ncol = 7,byrow = T))
+  names(params) = gsub("params.","", names(out)[1:7])
   params = params %>% mutate(ID = result$ID)
-  names(params)[1:4] = paste0(names(params)[1:4],"_",window)
-  params = params[,c(6,5,1:4)]
+  params = params[,c("ID","ndays","mes","amp","acr","acrotime","pr","pr_pval")]
+  names(params)[3:ncol(params)] = paste0( names(params)[3:ncol(params)],"_",window)
 
   ## Exporting the parameters
   if(export_ts){

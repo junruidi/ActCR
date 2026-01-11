@@ -17,6 +17,8 @@
 #' \item{acrotime}{acrophase in the unit of the time (hours)}
 #' \item{ndays}{Number of days modeled}
 #' \item{cosinor_ts}{Exported data frame with time, time over days, original time series, fitted time series using cosinor model}
+#' \item{pr}{Percent rhythm, which evaluates the elative power of the rhythm by checking the proportion of the variance explained by the model}
+#' \item{pr_pval}{P values for the percent rhythm}
 #'
 #'
 #' @references Cornelissen, G. Cosinor-based rhythmometry. Theor Biol Med Model 11, 16 (2014). https://doi.org/10.1186/1742-4682-11-16
@@ -52,8 +54,11 @@ ActCosinor = function(
   # acr = fit$coefficients[3]
   acr = correct.acrophase(fit)
   acrotime = (-1) * acr * 24/(2 * pi)
+  pr = cosinor.PR(fit)$`Percent rhythm`
+  pr_pval = cosinor.PR(fit)$`p-value`
 
-  names(mesor) = names(amp) = names(acr) = names(acrotime) = NULL
+
+  names(mesor) = names(amp) = names(acr) = names(acrotime) =  names(pr)  = names(pr_pval)  = NULL
 
   if (export_ts == TRUE) {
     # Put time series in data.frame and add it to output:
@@ -77,7 +82,9 @@ ActCosinor = function(
                "amp" = amp,
                "acr" = acr,
                "acrotime" = acrotime,
-               "ndays" = n.days)
+               "ndays" = n.days,
+               "pr" = pr,
+               "pr_pval" = pr_pval)
   ret = list("params" = params, "cosinor_ts" = cosinor_ts)
 
   ret =

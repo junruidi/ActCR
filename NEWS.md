@@ -1,17 +1,29 @@
-# ActCR
+## version 0.4.0
 
-10 May 2022
+---
 
-#Extended cosinor model now is able to handel data with NA.
+- fix format for initial NEWS.md line
 
-#Added new features for cosinor and extended cosinor model to export original and fitted time series.
-
-#Added M10 and L5 as output for the RA function.
+- add new features (percent rhythm) for the cosinor models 
 
 
-28 Jan 2021
 
-#Added new functions to derive metrics from extended cosinor models.
+## version 0.3.0
+
+---
+
+- Extended cosinor model now is able to handel data with NA.
+
+- add new features for the cosinor models 
+
+- add new features for cosinor and extended cosinor model to export original and fitted time series.
+
+- adde M10 and L5 as output for the RA function.
+
+
+
+
+
 
 
 
