@@ -21,6 +21,8 @@ A list with elements
 \item{acrotime}{acrophase in the unit of the time (hours)}
 \item{ndays}{Number of days modeled}
 \item{cosinor_ts}{Exported data frame with time, time over days, original time series, fitted time series using cosinor model}
+\item{pr}{Percent rhythm, which evaluates the elative power of the rhythm by checking the proportion of the variance explained by the model}
+\item{pr_pval}{P values for the percent rhythm}
 }
 \description{
 A parametric approach to study circadian rhythmicity assuming cosinor shape.

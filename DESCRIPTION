@@ -25,4 +25,4 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/junruidi/ActCR
 BugReports: https://github.com/junruidi/ActCR/issues
-RoxygenNote: 7.1.2
+RoxygenNote: 7.3.3

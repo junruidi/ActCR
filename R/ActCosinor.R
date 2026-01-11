@@ -8,7 +8,7 @@
 #'
 #'
 #' @importFrom cosinor cosinor.lm
-#' @importFrom cosinor2 correct.acrophase
+#' @importFrom cosinor2 correct.acrophase cosinor.PR
 #'
 #' @return A list with elements
 #' \item{mes}{MESOR which is short for midline statistics of rhythm, which is a rhythm adjusted mean. This represents mean activity level.}
